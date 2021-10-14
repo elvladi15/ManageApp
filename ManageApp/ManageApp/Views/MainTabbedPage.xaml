@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="ManageApp.Views.MainTabbedPage"
+            xmlns:views="clr-namespace:ManageApp.Views"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+    <TabbedPage.Children>
+        <views:HomePage Title="Today" IconImageSource="today_icon.png"/>
+        <ContentPage Title="Yoga" IconImageSource="yoga_icon.png"/>
+        <ContentPage Title="Meditation" IconImageSource="meditation_icon.png"/>
+        <ContentPage Title="Meal" IconImageSource="meal_icon.png"/>
+        <ContentPage Title="Profile" IconImageSource="profile_icon.png"/>
+    </TabbedPage.Children>
+</TabbedPage>

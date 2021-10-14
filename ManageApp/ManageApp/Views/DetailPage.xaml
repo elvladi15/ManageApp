@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ManageApp.Views.DetailPage">
+    <Grid RowDefinitions="70,Auto,Auto,Auto" BackgroundColor="#E8F4F4">
+        <Frame Grid.Row="0" BackgroundColor="#00CFBD">
+            <Label Text="{Binding Title}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="Large"/>
+        </Frame>
+        <Image Grid.Row="1" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" Margin="0,-7,0,0"/>
+        <FlexLayout Grid.Row="2" BackgroundColor="White" Margin="0,-5,0,0" HorizontalOptions="FillAndExpand" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="60">
+            <ImageButton Source="upload_icon.png" WidthRequest="35"/>
+            <BoxView BackgroundColor="#DDDDDD" Margin="0,10,0,10" WidthRequest="1"/>
+            <ImageButton Source="calendar_icon.png" WidthRequest="35"/>
+            <BoxView BackgroundColor="#DDDDDD" Margin="0,10,0,10" WidthRequest="1"/>
+            <ImageButton Source="heart_icon.png" WidthRequest="35"/>
+        </FlexLayout>
+        <Label Margin="20,10,20,0" Grid.Row="3" Text="{Binding Title}" TextColor="#00CFBD" FontSize="Large"/>
+        <Editor Margin="20,0,20,0" Grid.Row="4" Text="{Binding Description}" TextColor="#48484C" AutoSize="TextChanges" IsReadOnly="True"/>
+        <ImageButton Grid.Row="0" BackgroundColor="Transparent" Source="back_icon.png"  HorizontalOptions="Start" WidthRequest="30" Margin="20,20,0,0" VerticalOptions="Start" Command="{Binding BackCommand}"/>
+    </Grid>
+</ContentPage>

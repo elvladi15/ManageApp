@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ManageApp.Views.HomePage"
+             xmlns:views="clr-namespace:ManageApp.Views.Components">
+    <Grid RowDefinitions="160,Auto,Auto" ColumnDefinitions="*" Padding="15,5,15,0">
+        <StackLayout Grid.Row="0">
+            <Grid ColumnDefinitions="Auto,180,30">
+                <Label Grid.Column="0" Text="Quick Help" FontSize="Large" TextColor="Black" FontAttributes="Bold" Margin="0,0,0,10"/>
+                <Image Grid.Column="2" Source="search_icon.png"/>
+            </Grid>
+
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*,*,*">
+                <views:QuickHelpItem Grid.Column="0" BindingContext="{Binding BreatheQuickItem}"/>
+                <views:QuickHelpItem Grid.Column="1" BindingContext="{Binding SleepQuickItem}"/>
+                <views:QuickHelpItem Grid.Column="2" BindingContext="{Binding AnxiatyQuickItem}"/>
+                <views:QuickHelpItem Grid.Column="3" BindingContext="{Binding StressQuickItem}"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout Grid.Row="1">
+            <Label Text="Daily Meditations" FontSize="Large" TextColor="Black" FontAttributes="Bold" Margin="0,0,0,5"/>
+            <Frame CornerRadius="20" Padding="0" HeightRequest="140">
+                <Grid RowDefinitions="Auto,Auto,Auto">
+                    <Image Source="walking_girl_image.jpg" Grid.RowSpan="3" Aspect="Fill"/>
+                    <Label Grid.Row="1" Text="Rest and Relax" TextColor="Black" FontAttributes="Bold" FontSize="15" Margin="10,0,0,0"/>
+
+                    <Grid Grid.Row="2" ColumnDefinitions="30,Auto" Margin="0,0,0,40" >
+                        <Image Grid.Column="0" Source="clock_icon.png" Margin="10,0,0,0"/>
+                        <Label Grid.Column="1" Text="30 mins" TextColor="Black" FontSize="15" />
+                    </Grid>
+                </Grid>
+            </Frame>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Margin="0,5,0,0">
+            <Grid ColumnDefinitions="Auto,160,Auto">
+                <Label Grid.Column="0" Text="New Music" FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
+                <Label Grid.Column="2" Text="View all" Margin="0,0,0,20" />
+            </Grid>
+            <CollectionView ItemsSource="{Binding NewMusicItems}" HeightRequest="130" SelectionMode="Single" SelectedItem="{Binding SelectedNewMusicItem}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="20" Padding="0" WidthRequest="150">
+                            <StackLayout>
+                                <Image Source="{Binding Image}" HeightRequest="75" Aspect="AspectFill"/>
+                                <Label Text="{Binding Title}" HorizontalOptions="Start" FontAttributes="Bold" TextColor="Black" Margin="15,0,0,0"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="15,0,0,0">
+                                    <Image Source="clock_icon.png" HeightRequest="20"/>
+                                    <Label Text="{Binding Minute, StringFormat='{0} mins'}" HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
